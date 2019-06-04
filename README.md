@@ -2,6 +2,8 @@
 
 Kleine Python / Tk Applikation um Werte aus zwei Dateien zusammen zu fügen
 
+![](assets/zahlen-und-codes.png)
+
 ## Assets
 
 The icon is from
