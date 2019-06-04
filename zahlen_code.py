@@ -16,7 +16,7 @@ def get_codes(filename):
     codes = []
     with open(filename) as f:
         for line in f:
-            print(line.strip())
+            # print(line.strip())
             result = re.match('(\d+)\s*-\s*(\d+)\s*(\w)\s*(\w)', line.strip())
             codes.append((int(result[1]), (result[3], result[4])))
 
@@ -30,7 +30,7 @@ def process_names_and_codes(filename_codes, filename_names, filename_output):
     with open(filename_names) as f_n:
         with open(filename_output, 'w') as f_o:
             for line in f_n:
-                name, wert = line.strip().split(' ')
+                name, wert = line.strip().split('\t')
                 # print(wert)
                 pos = bisect.bisect_right(codes, (int(wert),))
                 # print(pos)

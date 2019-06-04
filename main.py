@@ -10,6 +10,9 @@ def codes_clicked(ignore = None):
         initialdir = os.environ['PWD']
     elif 'HOME' in os.environ:
         initialdir = os.environ['HOME']
+    # TODO: there does not seem to be a good way to get "My Documents"
+    elif 'HOMEPATH' in os.environ:
+        initialdir = os.environ['HOMEPATH']
     filename = filedialog.askopenfilename(
         initialdir = os.path.expanduser(initialdir),
         title = 'Codes-Datei auswählen',
@@ -60,7 +63,8 @@ window = Tk()
  
 window.title('Zahlen und Codes')
 window.geometry('640x480')
-window.attributes('-type', 'dialog')
+if os.name != 'nt':
+    window.attributes('-type', 'dialog')
 
 # todo: does not work
 window.bind('<Control-q>', quit)
