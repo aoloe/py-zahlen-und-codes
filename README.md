@@ -17,13 +17,7 @@ I've uploaded the png to <https://icoconvert.com/> and the resulting file did wo
 
 ```
 pip install pyinstaller
-pyinstaller --onefile --windowed --name zahlen-und-code main.py
+pyinstaller --onefile --windowed --icon assets\database_icon.ico --name zahlen-und-codes main.py
 ```
 
 The exe will be in the `dist` directory
-
-```
---icon FILE.ico
-```
-
-This does not work correctly: <https://github.com/pyinstaller/pyinstaller/issues/3944>
