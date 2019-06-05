@@ -18,10 +18,16 @@ def get_codes(filename):
         for line in f:
             # print(line.strip())
             result = re.match('(\d+)\s*-\s*(\d+)\s*(\w)\s*(\w)', line.strip())
-            codes.append((int(result[1]), (result[3], result[4])))
+            codes.append((int(result[2]), (result[3], result[4])))
 
-    # print(codes)
+    print(codes)
     return codes
+
+def get_matching_code(codes, value):
+    for boundary, code in codes:
+        if value <= boundary:
+            return code
+    return code
 
 def process_names_and_codes(filename_codes, filename_names, filename_output):
 
@@ -32,10 +38,7 @@ def process_names_and_codes(filename_codes, filename_names, filename_output):
             for line in f_n:
                 name, wert = line.strip().split('\t')
                 # print(wert)
-                pos = bisect.bisect_right(codes, (int(wert),))
-                # print(pos)
-                # print(codes[pos - 1])
-                code = codes[pos - 1][1]
+                code = get_matching_code(codes, int(wert))
 
                 f_o.write(f'{name}\t{wert}\t{code[0]}\t{code[1]}\n')
 

@@ -4,6 +4,10 @@ Kleine Python / Tk Applikation um Werte aus zwei Dateien zusammenzufügen
 
 ![](assets/zahlen-und-codes.png)
 
+## Notes
+
+- Ein Tutorial für Tk: [Python GUI examples (Tkinter Tutorial)](https://likegeeks.com/python-gui-examples-tkinter-tutorial/)
+
 ## Assets
 
 The icon is from
